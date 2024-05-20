@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         items = new ArrayList<>();
-        items.add("Number 2");
+        items.add("Minds in Motion ");
         items.add("Number 2");
         items.add("Number 3");
         items.add("Number 4");
