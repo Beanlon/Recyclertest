@@ -14,11 +14,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
     private List<String> data;
+    private List<String> time;
 
 
-    Adapter(Context context, List<String> data){
+    Adapter(Context context, List<String> data,List<String> time){
         this.layoutInflater = LayoutInflater.from(context);
         this.data = data;
+        this.time = time;
     }
 
     @NonNull
@@ -32,8 +34,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewholder, int i) {
 
         String title = data.get(i);
-        viewholder.textTitle.setText (title);
-
+        String times = time.get(i);
+        viewholder.textTitle.setText(title);
+        viewholder.textDate.setText(times);
 
 
     }

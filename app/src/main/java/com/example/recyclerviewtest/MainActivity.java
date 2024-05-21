@@ -1,39 +1,45 @@
 package com.example.recyclerviewtest;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Adapter adapter;
-    ArrayList<String> items;
+
+    List<Items> itemList = new ArrayList<>();
+    List<String> titles = new ArrayList<>();
+    List<String> dates = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        items = new ArrayList<>();
-        items.add("Minds in Motion ");
-        items.add("Number 2");
-        items.add("Number 3");
-        items.add("Number 4");
-        items.add("Number 5");
+        fillItemList();
 
+        for (Items item : itemList) {
+            titles.add(item.getTitle());
+            dates.add(item.getDate());
+        }
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,items);
+        adapter = new Adapter(this, titles, dates);
         recyclerView.setAdapter(adapter);
+    }
 
+    private void fillItemList() {
+        Items i0 = new Items("Minds in Motion", "May 10,2024");
+        Items i1 = new Items("asdsadaies", "2024-15-09");
+        Items i2 = new Items("asdasdsafajkhdkajshdkjh", "2024-15-09");
+
+
+        itemList.addAll(Arrays.asList(new Items[]{i0,i1,i2}));
     }
 }
