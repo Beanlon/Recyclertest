@@ -63,24 +63,24 @@
                         <TextView
                             android:id="@+id/textTitle"
                             android:layout_width="match_parent"
-                            android:layout_height="24dp"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
                             android:text="Name of event/news"
-                            android:textSize="20dp" />
+                            android:textSize="18dp" />
 
                         <TextView
                             android:id="@+id/textDate"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginTop="-5dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:paddingTop="3dp"
                             android:text="Date"
                             android:textColor="@color/grey"
                             android:textSize="17dp" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/favoritebttn"
                         android:layout_width="40dp"
                         android:layout_height="32dp"
                         android:layout_weight="1"

@@ -4,9 +4,13 @@ public class Items {
     private  String title;
     private String date;
 
-    public  Items(String title, String date){
+    private int image;
+
+    public  Items(String title, String date, int image){
         this.title = title;
         this.date = date;
+        this.image = image;
+
     }
 
     @Override
@@ -14,6 +18,7 @@ public class Items {
         return "Items{" +
                 "title='" + title + '\'' +
                 ", date='" + date + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 
@@ -31,5 +36,13 @@ public class Items {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

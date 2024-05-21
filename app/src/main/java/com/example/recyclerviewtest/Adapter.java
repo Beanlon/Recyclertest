@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,12 +16,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private LayoutInflater layoutInflater;
     private List<String> data;
     private List<String> time;
+    private List<Integer> image;
 
-
-    Adapter(Context context, List<String> data,List<String> time){
+    Adapter(Context context, List<String> data,List<String> time,List<Integer> image){
         this.layoutInflater = LayoutInflater.from(context);
         this.data = data;
         this.time = time;
+        this.image = image;
     }
 
     @NonNull
@@ -35,8 +37,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         String title = data.get(i);
         String times = time.get(i);
+        Integer images = image.get(i);
         viewholder.textTitle.setText(title);
         viewholder.textDate.setText(times);
+        viewholder.newsimage.setImageResource(images);
 
 
     }
@@ -49,11 +53,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView textTitle,textDate;
+        ImageView newsimage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textTitle = itemView.findViewById(R.id.textTitle);
             textDate = itemView.findViewById(R.id.textDate);
+            newsimage = itemView.findViewById(R.id.newsimage);
         }
     }
 }
